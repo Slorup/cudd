@@ -364,7 +364,7 @@ cuddAddExistAbstractRecurMin(
         ** dynamic reordering. If dynamic reordering occurs, we
         ** have to abort the entire abstraction.
         */
-        res = cuddAddApplyRecur(manager,Cudd_addPlus,res1,res1);
+        res = cuddAddApplyRecur(manager,Cudd_addMinimum,res1,res1);
         if (res == NULL) {
             Cudd_RecursiveDeref(manager,res1);
             return(NULL);
@@ -395,7 +395,7 @@ cuddAddExistAbstractRecurMin(
             return(NULL);
         }
         cuddRef(res2);
-        res = cuddAddApplyRecur(manager, Cudd_addPlus, res1, res2);
+        res = cuddAddApplyRecur(manager, Cudd_addMinimum, res1, res2);
         if (res == NULL) {
             Cudd_RecursiveDeref(manager,res1);
             Cudd_RecursiveDeref(manager,res2);
