@@ -661,6 +661,7 @@ extern int Cudd_bddBindVar(DdManager *dd, int index);
 extern int Cudd_bddUnbindVar(DdManager *dd, int index);
 extern int Cudd_bddVarIsBound(DdManager *dd, int index);
 extern DdNode * Cudd_addExistAbstract(DdManager *manager, DdNode *f, DdNode *cube);
+extern DdNode * Cudd_addExistAbstractMin(DdManager *manager, DdNode *f, DdNode *cube);
 extern DdNode * Cudd_addUnivAbstract(DdManager *manager, DdNode *f, DdNode *cube);
 extern DdNode * Cudd_addOrAbstract(DdManager *manager, DdNode *f, DdNode *cube);
 extern DdNode * Cudd_addApply(DdManager *dd, DD_AOP op, DdNode *f, DdNode *g);

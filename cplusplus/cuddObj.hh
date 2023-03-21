@@ -325,6 +325,7 @@ public:
     ADD operator|=(const ADD& other);
     bool IsZero() const;
     ADD ExistAbstract(const ADD& cube) const;
+    ADD ExistAbstractMin(const ADD& cube) const;
     ADD UnivAbstract(const ADD& cube) const;
     ADD OrAbstract(const ADD& cube) const;
     ADD Plus(const ADD& g) const;

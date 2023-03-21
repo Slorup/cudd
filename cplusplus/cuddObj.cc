@@ -2614,6 +2614,17 @@ ADD::ExistAbstract(
 
 } // ADD::ExistAbstract
 
+ADD
+ADD::ExistAbstractMin(
+  const ADD& cube) const
+{
+    DdManager *mgr = checkSameManager(cube);
+    DdNode *result = Cudd_addExistAbstractMin(mgr, node, cube.node);
+    checkReturnValue(result);
+    return ADD(p, result);
+
+} // ADD::ExistAbstractMin
+
 
 ADD
 ADD::UnivAbstract(
