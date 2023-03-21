@@ -357,7 +357,7 @@ cuddAddExistAbstractRecurMin(
 
     /* Abstract a variable that does not appear in f => multiply by 2. */
     if (cuddI(manager,f->index) > cuddI(manager,cube->index)) {
-        res1 = cuddAddExistAbstractRecur(manager, f, cuddT(cube));
+        res1 = cuddAddExistAbstractRecurMin(manager, f, cuddT(cube));
         if (res1 == NULL) return(NULL);
         cuddRef(res1);
         /* Use the "internal" procedure to be alerted in case of
@@ -386,10 +386,10 @@ cuddAddExistAbstractRecurMin(
 
     /* If the two indices are the same, so are their levels. */
     if (f->index == cube->index) {
-        res1 = cuddAddExistAbstractRecur(manager, T, cuddT(cube));
+        res1 = cuddAddExistAbstractRecurMin(manager, T, cuddT(cube));
         if (res1 == NULL) return(NULL);
         cuddRef(res1);
-        res2 = cuddAddExistAbstractRecur(manager, E, cuddT(cube));
+        res2 = cuddAddExistAbstractRecurMin(manager, E, cuddT(cube));
         if (res2 == NULL) {
             Cudd_RecursiveDeref(manager,res1);
             return(NULL);
@@ -408,10 +408,10 @@ cuddAddExistAbstractRecurMin(
         cuddDeref(res);
         return(res);
     } else { /* if (cuddI(manager,f->index) < cuddI(manager,cube->index)) */
-        res1 = cuddAddExistAbstractRecur(manager, T, cube);
+        res1 = cuddAddExistAbstractRecurMin(manager, T, cube);
         if (res1 == NULL) return(NULL);
         cuddRef(res1);
-        res2 = cuddAddExistAbstractRecur(manager, E, cube);
+        res2 = cuddAddExistAbstractRecurMin(manager, E, cube);
         if (res2 == NULL) {
             Cudd_RecursiveDeref(manager,res1);
             return(NULL);
@@ -430,7 +430,7 @@ cuddAddExistAbstractRecurMin(
         return(res);
     }
 
-} /* end of cuddAddExistAbstractRecur */
+} /* end of cuddAddExistAbstractRecurMin */
 
 /**
   @brief Performs the recursive step of Cudd_addUnivAbstract.
